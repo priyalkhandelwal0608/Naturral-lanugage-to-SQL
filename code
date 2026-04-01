@@ -3,7 +3,7 @@ import pandas as pd
 from langchain_ollama import OllamaLLM
 
 # ==============================
-# 1️⃣ Create Database
+#  Create Database
 # ==============================
 data = {
     "Name": ["Alice", "Bob", "Charlie", "David"],
@@ -14,16 +14,16 @@ data = {
 df = pd.DataFrame(data)
 conn = sqlite3.connect("example.db")
 df.to_sql("employees", conn, index=False, if_exists="replace")
-print("✅ Database ready!")
+print(" Database ready!")
 
 # ==============================
-# 2️⃣ Load Ollama LLM
+#  Load Ollama LLM
 # ==============================
 # Make sure Ollama app is open
 llm = OllamaLLM(model="llama3", base_url="http://localhost:11434")
 
 # ==============================
-# 3️⃣ Function to handle SQL questions
+#  Function to handle SQL questions
 # ==============================
 def ask_db(question: str) -> str:
     """
@@ -50,7 +50,7 @@ def ask_db(question: str) -> str:
     try:
         result = pd.read_sql_query(sql, conn)
     except Exception as e:
-        return f"⚠️ SQL Error: {e}"
+        return f" SQL Error: {e}"
     
     # Prepare prompt for Ollama
     result_str = result.to_string(index=False)
@@ -61,17 +61,17 @@ def ask_db(question: str) -> str:
         response = llm.generate([prompt])
         return response.generations[0][0].text
     except Exception as e:
-        return f"⚠️ Ollama Error: {e}"
+        return f" Ollama Error: {e}"
 
 # ==============================
-# 4️⃣ Interactive Loop
+#  Interactive Loop
 # ==============================
 print("\n💬 Ask questions about the employees database (type 'exit' to quit):\n")
 
 while True:
     question = input("Your question: ")
     if question.lower() in ["exit", "quit"]:
-        print("👋 Goodbye!")
+        print(" Goodbye!")
         break
     answer = ask_db(question)
-    print("\n📊 Ollama Response:", answer, "\n")
+    print("\n Ollama Response:", answer, "\n")
