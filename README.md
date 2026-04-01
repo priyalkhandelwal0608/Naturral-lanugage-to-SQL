@@ -47,45 +47,7 @@ pip install -r requirements.txt
 Download and install Ollama from: https://ollama.com
 ollama pull llama3
 python main.py
-```
 
-
-##  Example Usage
-
-###  Input:
-
-```
-Show all employees
-```
-
-###  Database Output:
-
-```
-Name     Age     Salary
-Alice    25      50000
-Bob      30      60000
-Charlie  35      70000
-```
-
-###  AI Output:
-
-```
-There are 3 employees: Alice, Bob, and Charlie.
-Their ages range from 25 to 35 and salaries range from 50,000 to 70,000.
-```
-
----
-
-##  Workflow
-
-1. User enters a question
-2. Question is converted into SQL
-3. SQL query runs on SQLite database
-4. Result is stored in Pandas DataFrame
-5. Data is converted into text
-6. Prompt is sent to Ollama
-7. AI generates a simple explanation
-8. Output is shown to user
 
 ---
 
