@@ -43,10 +43,10 @@ project/
 ---
 
 ##  Installation and run
-pip install -r requirements.txt
-Download and install Ollama from: https://ollama.com
-ollama pull llama3
-python main.py
+- pip install -r requirements.txt
+- Download and install Ollama from: https://ollama.com
+- ollama pull llama3
+- python main.py
 
 
 ---
