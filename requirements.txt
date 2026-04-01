@@ -1,0 +1,5 @@
+pandas
+sqlite3
+langchain
+langchain-ollama
+ollama
